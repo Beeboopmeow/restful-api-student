@@ -4,9 +4,6 @@ const validation = require('../../validations.js');
 
 const router = express.Router();
 
-// router.get('/', (req, res) => { 
-//     res.send('Hello World!');
-// });
 const studentController = new StudentController();
 
 router.post('/students', validation.validate(validation.studentSchema), (req, res, next) => studentController.create(req, res, next));

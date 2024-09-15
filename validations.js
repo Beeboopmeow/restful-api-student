@@ -6,6 +6,12 @@ const studentSchema = yup.object({
     })
 });
 
+const courseSchema = yup.object({
+    body: yup.object({
+        "name": yup.string().required()
+    })
+});
+
 const validate = (schema) => async (req, res, next) => {
     try {
         await schema.validate({
@@ -19,4 +25,4 @@ const validate = (schema) => async (req, res, next) => {
     }
 }
 
-module.exports = { validate, studentSchema };
+module.exports = { validate, studentSchema, courseSchema };
